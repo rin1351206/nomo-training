@@ -1,0 +1,20 @@
+### Todo一覧取得テスト
+GET https://todoapp-rinsu-g5b7f6argrd5gxc3.japaneast-01.azurewebsites.net/api/todos
+Accept: application/json
+
+### Todo追加テスト
+POST https://todoapp-rinsu-g5b7f6argrd5gxc3.japaneast-01.azurewebsites.net/api/todos
+Content-Type: application/json
+
+{
+    "title": "テストタスク",
+    "deadline": "2025-05-01"
+}
+
+### Todo削除テスト
+POST https://todoapp-rinsu-g5b7f6argrd5gxc3.japaneast-01.azurewebsites.net/api/todos/delete/1
+Content-Type: application/json
+
+### テストAPI
+POST https://todoapp-rinsu-g5b7f6argrd5gxc3.japaneast-01.azurewebsites.net/todoapp-0.0.1-SNAPSHOT/api/todos/test
+Accept: application/json
