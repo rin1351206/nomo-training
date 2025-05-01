@@ -1,20 +1,22 @@
+@baseUrl = https://todoapp-rinsu-g5b7f6argrd5gxc3.japaneast-01.azurewebsites.net/api/todos
+
 ### Todo一覧取得テスト
-GET https://todoapp-rinsu-g5b7f6argrd5gxc3.japaneast-01.azurewebsites.net/api/todos
+GET {{baseUrl}}/list
 Accept: application/json
 
 ### Todo追加テスト
-POST https://todoapp-rinsu-g5b7f6argrd5gxc3.japaneast-01.azurewebsites.net/api/todos
+POST {{baseUrl}}/add
 Content-Type: application/json
 
 {
-    "title": "テストタスク",
+    "title": "テストタスク2",
     "deadline": "2025-05-01"
 }
 
 ### Todo削除テスト
-POST https://todoapp-rinsu-g5b7f6argrd5gxc3.japaneast-01.azurewebsites.net/api/todos/delete/1
+POST {{baseUrl}}/delete/1
 Content-Type: application/json
 
 ### テストAPI
-POST https://todoapp-rinsu-g5b7f6argrd5gxc3.japaneast-01.azurewebsites.net/todoapp-0.0.1-SNAPSHOT/api/todos/test
+POST {{baseUrl}}/test
 Accept: application/json

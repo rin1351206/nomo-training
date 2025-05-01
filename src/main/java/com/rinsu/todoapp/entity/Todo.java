@@ -12,16 +12,15 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.Data;
 
 @Entity
-@Data
-@Where(clause = "delete_flg = 0") // 論理削除されていないレコードのみ取得
+@Where(clause = "delete_flg = 0")
 public class Todo {
     // タスクID 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @Column(name = "id", nullable = false, updatable = false)
+    private long id;
     
     // タイトル
     @Column(nullable = false, length = 100)
@@ -43,15 +42,15 @@ public class Todo {
     private LocalDateTime updatedAt;
     
     // 削除フラグ (0:未削除、1:削除済)
-    @Column(name = "delete_flg", nullable = false)
+    @Column(nullable = false)
     private Integer deleteFlg = 0;
     
     // getter/setterメソッド
-    public Integer getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(long id) {
         this.id = id;
     }
 
