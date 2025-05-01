@@ -1,8 +1,8 @@
 package com.rinsu.todoapp.service;
  
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,15 +24,18 @@ public class TodoService {
 		Todo todo = new Todo();
 		todo.setTitle(title);
 		todo.setDeadline(deadline);
-		todo.setCreatedAt(LocalDateTime.now());
-		todo.setUpdatedAt(LocalDateTime.now());
-		todo.setDeleteFlg(0);
+		todo.setStatus(1);
 		repository.save(todo);
 		return repository.findAll();
 	}
 	
 	public void deleteTodo(int id) {
-		repository.deleteById(id);
+		Optional<Todo> todoOpt = repository.findById(id);
+		if (todoOpt.isPresent()) {
+			Todo todo = todoOpt.get();
+			todo.setDeleteFlg(1);
+			repository.save(todo);
+		}
 	}
     
 }
