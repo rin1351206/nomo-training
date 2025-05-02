@@ -1,11 +1,11 @@
-@baseUrl = https://todoapp-rinsu-g5b7f6argrd5gxc3.japaneast-01.azurewebsites.net/api/todos
+@baseUrl = https://todoapp-rinsu-g5b7f6argrd5gxc3.japaneast-01.azurewebsites.net/api
 
 ### Todo一覧取得テスト
-GET {{baseUrl}}/list
+GET {{baseUrl}}/todos/list
 Accept: application/json
 
 ### Todo追加テスト
-POST {{baseUrl}}/add
+POST {{baseUrl}}/todos/add
 Content-Type: application/json
 
 {
@@ -14,9 +14,23 @@ Content-Type: application/json
 }
 
 ### Todo削除テスト
-POST {{baseUrl}}/delete/1
+POST {{baseUrl}}/todos/delete/5
 Content-Type: application/json
 
-### テストAPI
-POST {{baseUrl}}/test
+
+
+### 画像アップロードテスト
+POST {{baseUrl}}/images/upload
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="ET勤怠.png"
+Content-Type: image/png
+
+< C:\Users\rinnosuke_nomoto\OneDrive - MIROKU JYOHO SERVICE CO., LTD\デスクトップ\ET勤怠.png
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+### 画像URL取得テスト
+GET {{baseUrl}}/images/13543683-a6c7-456c-b19e-b2384ea427a7.png
 Accept: application/json
+
