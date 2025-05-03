@@ -33,3 +33,22 @@ build/
 .vscode/
 
 .env
+
+# Reactフロントエンド
+/frontend/node_modules
+/frontend/.pnp
+/frontend/.pnp.js
+/frontend/coverage
+/frontend/build
+/frontend/.DS_Store
+/frontend/npm-debug.log*
+/frontend/yarn-debug.log*
+/frontend/yarn-error.log*
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# その他
+.DS_Store
+*.log
