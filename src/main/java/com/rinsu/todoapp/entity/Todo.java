@@ -20,7 +20,7 @@ public class Todo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, updatable = false)
-    private long id;
+    private Integer id;
     
     // タイトル
     @Column(nullable = false, length = 100)
@@ -46,11 +46,11 @@ public class Todo {
     private Integer deleteFlg = 0;
     
     // getter/setterメソッド
-    public long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

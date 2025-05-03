@@ -7,7 +7,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
-public class TodoCreateRequest {
+public class TodoDto {
     @NotBlank(message = "タイトルは必須です")
     private String title;
     
