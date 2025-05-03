@@ -34,3 +34,19 @@ Content-Type: image/png
 GET {{baseUrl}}/images/13543683-a6c7-456c-b19e-b2384ea427a7.png
 Accept: application/json
 
+### ログインテスト
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+    "email":"rin@example.com",
+    "password":"$2a$10$skMOMzZVrCOpS9UAZ6Zq2uHDMNGOrjcE9mpRLNw4/BL8cRz5ztKMi"
+}
+
+### ログアウトテスト
+POST {{baseUrl}}/logout
+Content-Type: application/json
+
+{
+    "id": 3
+}

@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rinsu.todoapp.dto.TodoCreateRequest;
 import com.rinsu.todoapp.entity.Todo;
+import com.rinsu.todoapp.dto.TodoDto;
 import com.rinsu.todoapp.service.TodoService;
 
 import jakarta.validation.Valid;
@@ -32,7 +32,7 @@ public class TodoController {
 
     // Todoを追加
     @PostMapping("/add")
-    public List<Todo> addTodo(@Valid @RequestBody TodoCreateRequest request) {
+    public List<Todo> addTodo(@Valid @RequestBody TodoDto request) {
         return todoService.addTodo(request.getTitle(), request.getDeadline());
     }
     
@@ -40,32 +40,6 @@ public class TodoController {
     @PostMapping("/delete/{id}")
     public void deleteTodo(@PathVariable int id) {
     	todoService.deleteTodo(id);
-    }
-
-    @PostMapping("/test")
-    public String testApi() {
-        return "success";
-    }
-    
-    public static class TodoRequest {
-        private String title;
-        private LocalDate deadline;
-        
-        public String getTitle() {
-            return title;
-        }
-        
-        public void setTitle(String title) {
-            this.title = title;
-        }
-        
-        public LocalDate getDeadline() {
-            return deadline;
-        }
-        
-        public void setDeadline(LocalDate deadline) {
-            this.deadline = deadline;
-        }
     }
 }
 
