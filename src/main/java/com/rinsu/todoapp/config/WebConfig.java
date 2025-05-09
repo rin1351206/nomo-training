@@ -15,7 +15,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/**")
-                .addResourceLocations("classpath:/static/", "classpath:/frontend/build/")
+                .addResourceLocations("classpath:/static/")
                 .resourceChain(true)
                 .addResolver(new PathResourceResolver() {
                     @Override
@@ -28,7 +28,7 @@ public class WebConfig implements WebMvcConfigurer {
                         
                         // APIリクエスト以外はindex.htmlにフォールバック
                         if (!resourcePath.startsWith("api/")) {
-                            return new ClassPathResource("/frontend/build/index.html");
+                            return new ClassPathResource("/static/index.html");
                         }
                         
                         return null;
