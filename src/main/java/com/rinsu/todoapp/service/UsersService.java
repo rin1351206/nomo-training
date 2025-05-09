@@ -23,7 +23,7 @@ public class UsersService {
         Users user = repository.findById(request.getId()).orElseThrow(() -> new RuntimeException("ユーザが見つかりません"));
         UsersCommonResponseDto response = new UsersCommonResponseDto();
         response.setId(user.getId());
-        response.setUserName(user.getUsername());
+        response.setUserName(user.getUserName());
         response.setEmail(user.getEmail());
         return response;
     }
@@ -34,7 +34,7 @@ public class UsersService {
         .map(user -> {
             UsersCommonResponseDto response = new UsersCommonResponseDto();
             response.setId(user.getId());
-            response.setUserName(user.getUsername());
+            response.setUserName(user.getUserName());
             response.setEmail(user.getEmail());
             return response;
         })
@@ -44,14 +44,14 @@ public class UsersService {
     // ユーザ登録
     public UsersCommonResponseDto createUser(UsersCreateDto userInfo) {
         Users user = new Users();
-        user.setUsername(userInfo.getUserName());
+        user.setUserName(userInfo.getUserName());
         user.setEmail(userInfo.getEmail());
         user.setPassword(userInfo.getPassword());
         repository.save(user);
         
         UsersCommonResponseDto response = new UsersCommonResponseDto();
         response.setId(user.getId());
-        response.setUserName(user.getUsername());
+        response.setUserName(user.getUserName());
         response.setEmail(user.getEmail());
         return response;
     }
