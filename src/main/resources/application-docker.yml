@@ -1,0 +1,23 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  datasource:
+    url: ${AZURE_SQL_URL:jdbc:sqlserver://todoapp-serverinsu.database.windows.net:1433;database=todoapp-db;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;}
+    username: ${AZURE_SQL_USERNAME:todo-admin@todoapp-serverinsu}
+    password: ${AZURE_SQL_PASSWORD:R!n1351206}
+    driver-class-name: ${AZURE_SQL_DRIVER:com.microsoft.sqlserver.jdbc.SQLServerDriver}
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: true
+
+# Azure AppServiceにデプロイ時は他の設定を使用
+logging:
+  level:
+    root: WARN
+    com.rinsu: INFO
+    org.hibernate.SQL: ERROR
+    org.springframework.jdbc: ERROR
