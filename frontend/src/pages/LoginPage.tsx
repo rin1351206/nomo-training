@@ -38,7 +38,7 @@ const LoginPage: React.FC = () => {
 
   return (
     <div className="login-container">
-      <h1>sd</h1>
+      <h1>ログイン画面</h1>
       {error && <div className="error-message">{error}</div>}
       <form onSubmit={handleSubmit}>
         <div className="form-group">

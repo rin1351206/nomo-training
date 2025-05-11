@@ -37,6 +37,7 @@ Thumbs.db
 # Environment variables
 .env
 .env.local
+src/main/resources/application-docker.yml
 
 ### STS ###
 .apt_generated
