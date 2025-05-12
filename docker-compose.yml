@@ -24,7 +24,22 @@ services:
       - ./frontend:/app/frontend
     environment:
       - SPRING_PROFILES_ACTIVE=docker
-      - AZURE_SQL_URL=jdbc:sqlserver://todoapp-serverinsu.database.windows.net:1433;database=todoapp-db;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
-      - AZURE_SQL_USERNAME=todo-admin@todoapp-serverinsu
-      - AZURE_SQL_PASSWORD=R!n1351206
-      - AZURE_SQL_DRIVER=com.microsoft.sqlserver.jdbc.SQLServerDriver
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/todoapp
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:16
+    environment:
+      - POSTGRES_DB=todoapp
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
