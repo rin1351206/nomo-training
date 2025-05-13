@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.rinsu.todoapp.dto.Users.UsersCommonRequestDto;
 import com.rinsu.todoapp.dto.Users.UsersCommonResponseDto;
 import com.rinsu.todoapp.dto.Users.UsersCreateDto;
+import com.rinsu.todoapp.dto.Users.UsersUpdateDto;
+import com.rinsu.todoapp.dto.Users.UsersUpdatePasswordDto;
 import com.rinsu.todoapp.service.UsersService;
 
 @RestController
@@ -20,40 +22,40 @@ public class UsersController {
     @Autowired
     private UsersService service;
 
-    // ユーザを取得
+    // ユーザ取得
     @GetMapping("/get")
     public UsersCommonResponseDto getUser(@RequestBody UsersCommonRequestDto request) {
         return service.getUser(request);
     }
 
-    //ユーザ一覧を取得
+    //ユーザ一覧取得
     @GetMapping("/list")
     public List<UsersCommonResponseDto> getUsersList() {
         return service.getUsersList();
     }
 
-    // ユーザを登録
+    // ユーザ登録
     @PostMapping("/create")
     public UsersCommonResponseDto createUser(@RequestBody UsersCreateDto request) {
         return service.createUser(request);
     }
 
-    // // ユーザを更新
-    // @PostMapping("/update")
-    // public void updateUser(@RequestBody UsersUpdateDto request) {
-    //     service.updateUser(request);
-    // }
+    // ユーザ更新
+    @PostMapping("/update")
+    public void updateUser(@RequestBody UsersUpdateDto request) {
+        service.updateUser(request);
+    }
 
-    // // ユーザを削除
-    // @PostMapping("/delete")
-    // public void deleteUser(@RequestBody UsersDeleteDto request) {
-    //     service.deleteUser(request);
-    // }
+    // ユーザ削除
+    @PostMapping("/delete")
+    public void deleteUser(@RequestBody UsersCommonRequestDto request) {
+        service.deleteUser(request);
+    }
 
-    // // パスワードを更新
-    // @PostMapping("/updatePassword")
-    // public void updatePassword(@RequestBody UsersUpdatePasswordDto request) {
-    //     service.updatePassword(request);
-    // }
+    // パスワードを更新
+    @PostMapping("/updatePassword")
+    public void updatePassword(@RequestBody UsersUpdatePasswordDto request) {
+        service.updatePassword(request);
+    }
 
 }

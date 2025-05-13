@@ -4,10 +4,8 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
-public class UsersUpdateDto {
+public class UsersUpdateDto extends UsersCommonRequestDto {
 
-    @NotNull(message = "ユーザIDは必須です")
-    public Long id;
-    
-    
+    @NotNull(message = "メールアドレスは必須です")
+    public String email;
 }
