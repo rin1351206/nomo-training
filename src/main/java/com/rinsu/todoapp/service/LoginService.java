@@ -4,7 +4,9 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.rinsu.todoapp.dto.LoginDto;
 import com.rinsu.todoapp.dto.LoginResponseDto;
@@ -22,12 +24,12 @@ public class LoginService {
         Optional<Users> userOpt = repository.findByUserName(login.userName);
         
         if (!userOpt.isPresent()) {
-            return new LoginResponseDto(false, "ユーザー名またはパスワードが間違っています");
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "ユーザー名またはパスワードが間違っています");
         }
 
         Users user = userOpt.get();
         if (!login.password.equals(user.getPassword())) {
-            return new LoginResponseDto(false, "ユーザー名またはパスワードが間違っています");
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "ユーザー名またはパスワードが間違っています");
         }
 
         user.setLastLoginAt(LocalDateTime.now());
