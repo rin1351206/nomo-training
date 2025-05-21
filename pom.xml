@@ -10,11 +10,11 @@
 		<!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.rinsu</groupId>
-	<artifactId>todoapp</artifactId>
+	<artifactId>nomo-training</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>todoapp</name>
-	<description>Todoアプリ</description>
+	<name>nomo-training</name>
+	<description>のもトレーニング</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -110,7 +110,7 @@
 	</dependencyManagement>
 
 	<build>
-		<finalName>todoapp</finalName>
+		<finalName>trainingapp</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
