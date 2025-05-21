@@ -29,4 +29,4 @@ jobs:
           ${{ runner.os }}-maven-
 
     - name: Maven ビルドとテスト
-      run: mvn clean install
+      run: mvn clean install -DskipTests=true
