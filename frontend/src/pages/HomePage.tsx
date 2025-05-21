@@ -11,6 +11,8 @@ import {
 } from '@mui/material';
 import DomainVerificationRoundedIcon from '@mui/icons-material/DomainVerificationRounded';
 import FitnessCenterRoundedIcon from '@mui/icons-material/FitnessCenterRounded';
+import RestaurantRoundedIcon from '@mui/icons-material/RestaurantRounded';
+import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
 import { logout } from '../services/loginService';
 
 const drawerWidth = 240;
@@ -28,8 +30,20 @@ const HomePage: React.FC = () => {
         }
     };
 
-    const handleWorkoutClick = () => {
-        setMessage('筋トレボタン押されました');
+    const handleRecordClick = () => {
+        navigate('/record');
+    };
+
+    const handleTrainingClick = () => {
+        navigate('/training');
+    };
+
+    const handleMealClick = () => {
+        navigate('/meal');
+    };
+
+    const handleProfileClick = () => {
+        navigate('/profile');
     };
 
     return (
@@ -38,7 +52,7 @@ const HomePage: React.FC = () => {
                 <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
                     <Toolbar>
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                            野本の勉強用
+                            のもトレーニング
                         </Typography>
                         <Button
                             color="inherit"
@@ -62,26 +76,46 @@ const HomePage: React.FC = () => {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                gap: 6
+                gap: 8
             }}>
                 <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <IconButton>
+                    <IconButton onClick={handleRecordClick}>
                         <Avatar sx={{ bgcolor: 'primary.main', width: 200, height: 200 }}>
                             <DomainVerificationRoundedIcon sx={{ fontSize: '160px', color: '#fff' }} />
                         </Avatar>
                     </IconButton>
                     <Typography variant="h6" sx={{ mt: 2, fontSize: '30px' }}>
-                        Todo
+                        記録
                     </Typography>
                 </Box>
                 <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <IconButton>
+                    <IconButton onClick={handleTrainingClick}>
                         <Avatar sx={{ bgcolor: 'primary.main', width: 200, height: 200 }}>
                             <FitnessCenterRoundedIcon sx={{ fontSize: '160px', color: '#fff' }} />
                         </Avatar>
                     </IconButton>
                     <Typography variant="h6" sx={{ mt: 2, fontSize: '30px' }}>
-                        筋トレ
+                        トレーニング
+                    </Typography>
+                </Box>
+                <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                    <IconButton onClick={handleMealClick}>
+                        <Avatar sx={{ bgcolor: 'primary.main', width: 200, height: 200 }}>
+                            <RestaurantRoundedIcon sx={{ fontSize: '160px', color: '#fff' }} />
+                        </Avatar>
+                    </IconButton>
+                    <Typography variant="h6" sx={{ mt: 2, fontSize: '30px' }}>
+                        食事
+                    </Typography>
+                </Box>
+                <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                    <IconButton onClick={handleProfileClick}>
+                        <Avatar sx={{ bgcolor: 'primary.main', width: 200, height: 200 }}>
+                            <PersonRoundedIcon sx={{ fontSize: '160px', color: '#fff' }} />
+                        </Avatar>
+                    </IconButton>
+                    <Typography variant="h6" sx={{ mt: 2, fontSize: '30px' }}>
+                        あなた
                     </Typography>
                 </Box>
             </Box>

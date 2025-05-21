@@ -62,7 +62,7 @@ const LoginPage: React.FC = () => {
       const response = await login(userName, password);
 
       if (response.success) {
-        navigate('/Home');
+        navigate('/home');
       } else {
         setError(response.message || 'ログインに失敗しました');
       }
@@ -78,7 +78,7 @@ const LoginPage: React.FC = () => {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            野本の勉強用
+            のもトレーニング
           </Typography>
         </Toolbar>
       </AppBar>
