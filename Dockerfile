@@ -7,6 +7,6 @@ RUN mvn clean package -DskipTests
 
 FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
-COPY --from=build /app/target/todoapp.war ./app.war
+COPY --from=build /app/target/nomo-training.war ./app.war
 EXPOSE 8080
 CMD ["java", "-jar", "app.war"]

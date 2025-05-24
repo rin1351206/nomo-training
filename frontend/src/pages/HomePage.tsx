@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
     Typography,
-    AppBar,
-    Toolbar,
-    Button,
     Box,
     IconButton,
     Avatar,
@@ -13,22 +10,13 @@ import DomainVerificationRoundedIcon from '@mui/icons-material/DomainVerificatio
 import FitnessCenterRoundedIcon from '@mui/icons-material/FitnessCenterRounded';
 import RestaurantRoundedIcon from '@mui/icons-material/RestaurantRounded';
 import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
-import { logout } from '../services/loginService';
+import CommonAppBar from '../components/CommonAppBar';
 
 const drawerWidth = 240;
 
 const HomePage: React.FC = () => {
     const navigate = useNavigate();
     const [message, setMessage] = useState<string>('');
-
-    const handleLogout = async () => {
-        const response = await logout();
-        if (response.success) {
-            navigate('/');
-        } else {
-            console.error('ログアウトに失敗しました:', response.message);
-        }
-    };
 
     const handleRecordClick = () => {
         navigate('/record');
@@ -49,27 +37,7 @@ const HomePage: React.FC = () => {
     return (
         <>
             <Box sx={{ display: 'flex' }}>
-                <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
-                    <Toolbar>
-                        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                            のもトレーニング
-                        </Typography>
-                        <Button
-                            color="inherit"
-                            variant="outlined"
-                            onClick={handleLogout}
-                            sx={{
-                                '&:hover': {
-                                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                                    transform: 'scale(1.05)',
-                                    transition: 'all 0.3s ease-in-out'
-                                }
-                            }}
-                        >
-                            ログアウト
-                        </Button>
-                    </Toolbar>
-                </AppBar>
+                <CommonAppBar />
             </Box>
             <Box sx={{
                 marginTop: '200px',

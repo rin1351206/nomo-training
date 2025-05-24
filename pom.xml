@@ -110,7 +110,7 @@
 	</dependencyManagement>
 
 	<build>
-		<finalName>trainingapp</finalName>
+		<finalName>nomo-training</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
