@@ -49,6 +49,10 @@ public class UsersService {
         user.setUserName(userInfo.getEmail());
         user.setEmail(userInfo.getEmail());
         user.setPassword(userInfo.getPassword());
+        user.setGender(userInfo.getGender());
+        user.setHeightCm(userInfo.getHeightCm());
+        user.setWeightKg(userInfo.getWeightKg());
+        user.setBodyType(Users.BodyType.valueOf(userInfo.getBodyType()));
         repository.save(user);
         
         UsersCommonResponseDto response = new UsersCommonResponseDto();

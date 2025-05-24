@@ -12,4 +12,12 @@ public class UsersCreateDto {
     @NotBlank(message = "パスワードは必須です")
     public String password;
 
+    public String gender;
+
+    public Double heightCm;
+
+    public Double weightKg;
+
+    public String bodyType;
+
 }
