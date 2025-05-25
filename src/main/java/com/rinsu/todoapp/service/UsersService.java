@@ -49,7 +49,7 @@ public class UsersService {
         user.setUserName(userInfo.getEmail());
         user.setEmail(userInfo.getEmail());
         user.setPassword(userInfo.getPassword());
-        user.setGender(userInfo.getGender());
+        user.setGender(Users.Gender.valueOf(userInfo.getGender().name()));
         user.setHeightCm(userInfo.getHeightCm());
         user.setWeightKg(userInfo.getWeightKg());
         user.setBodyType(Users.BodyType.valueOf(userInfo.getBodyType()));

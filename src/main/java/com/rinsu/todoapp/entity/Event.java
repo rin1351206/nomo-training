@@ -12,10 +12,6 @@ public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private Users userId;
 
     @ManyToOne
     @JoinColumn(name = "body_parts_id")
@@ -36,15 +32,7 @@ public class Event {
     public void setId(Long id) {
         this.id = id;
     }
-
-    public Users getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Users userId) {
-        this.userId = userId;
-    }
-
+    
     public BodyParts getBodyPartsId() {
         return bodyPartsId;
     }

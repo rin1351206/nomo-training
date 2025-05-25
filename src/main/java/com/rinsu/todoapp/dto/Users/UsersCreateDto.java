@@ -2,6 +2,7 @@ package com.rinsu.todoapp.dto.Users;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
+import com.rinsu.todoapp.entity.Users;
 
 @Data
 public class UsersCreateDto {
@@ -12,7 +13,7 @@ public class UsersCreateDto {
     @NotBlank(message = "パスワードは必須です")
     public String password;
 
-    public String gender;
+    public Users.Gender gender;
 
     public Double heightCm;
 

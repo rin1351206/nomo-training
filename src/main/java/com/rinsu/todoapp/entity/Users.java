@@ -43,8 +43,12 @@ public class Users {
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
+    public enum Gender {
+        MALE, FEMALE
+    }
+
     @Column(name = "gender", length = 10)
-    private String gender;
+    private Gender gender;
 
     @Column(name = "height_cm")
     private Double heightCm;
@@ -112,11 +116,11 @@ public class Users {
         return updatedAt;
     }
 
-    public String getGender() {
+    public Gender getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 
